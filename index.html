@@ -1,1 +1,122 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Mother's Day</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #FBEAF0 0%, #F4C0D1 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1800px;
+      font-family: 'Cormorant Garamond', serif;
+      padding: 2rem;
+    }
+    .card {
+      position: relative;
+      width: 320px;
+      height: 420px;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+    .panel {
+      position: absolute;
+      inset: 0;
+      border-radius: 6px;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(75, 21, 40, 0.15);
+    }
+    .back {
+      background: #FBEAF0;
+      border: 0.5px solid #ED93B1;
+    }
+    .inside {
+      background: #FFF8FA;
+      border: 0.5px solid #F4C0D1;
+    }
+    .inside .greeting {
+      font-size: 22px;
+      color: #72243E;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .inside .message {
+      font-size: 15px;
+      color: #993556;
+      line-height: 1.7;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .inside .signoff {
+      margin-top: 1.5rem;
+      font-style: italic;
+      font-size: 18px;
+      color: #72243E;
+    }
+    .front {
+      background: #F4C0D1;
+      border: 0.5px solid #ED93B1;
+      transform-origin: left center;
+      transition: transform 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+      backface-visibility: hidden;
+    }
+    .front.open { transform: rotateY(-160deg); }
+    .front .happy {
+      font-family: 'Great Vibes', cursive;
+      font-size: 56px;
+      color: #4B1528;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .front .mothers-day {
+      font-size: 28px;
+      color: #4B1528;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+    .front .hint {
+      margin-top: 1.5rem;
+      font-size: 12px;
+      color: #72243E;
+      opacity: 0.6;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="card" id="card">
+    <div class="panel back"></div>
+    <div class="panel inside">
+      <div class="greeting">For the heart that taught mine how to love</div>
+      <div class="message">Thank you for every quiet sacrifice, every late-night talk, and every time you believed in me before I did. I love you more than words can hold.</div>
+      <div class="signoff">— Your child</div>
+    </div>
+    <div class="panel front" id="front">
+      <div class="happy">Happy</div>
+      <div class="mothers-day">Mother's Day</div>
+      <svg width="80" height="80" viewBox="0 0 80 80">
+        <path d="M40 65 C 15 45, 15 25, 28 22 C 35 21, 40 28, 40 32 C 40 28, 45 21, 52 22 C 65 25, 65 45, 40 65 Z"
+              fill="#D4537E" stroke="#993556" stroke-width="0.5"/>
+      </svg>
+      <div class="hint">tap to open</div>
+    </div>
+  </div>
+  <script>
+    const front = document.getElementById('front');
+    document.getElementById('card').addEventListener('click', () => {
+      front.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
